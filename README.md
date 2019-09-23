@@ -1,3 +1,3 @@
 # Spring Repository
 
-This is a repository for my Spring projects.
+This is a repository for my SpringMVC and Springboot projects.
