@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="helloWorldFactory"
+		class="com.example.demo.service.HelloWorldFactory"></bean>
+	<bean id="eng2" factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="eng"></constructor-arg>
+	</bean>
+	
+	<bean id="helloWorldServiceTamil" factory-bean="helloWorldFactory"
+		factory-method="createHelloWorldService">
+		<constructor-arg value="tamil"></constructor-arg>
+	</bean>
+	
+	<beans profile="english">
+		<import resource="classpath:/spring/helloWorld_eng-config.xml"/>
+	</beans>
+	
+	<beans profile="tamil">
+		<import resource="classpath*:/spring/helloWorld_tamil-config.xml"/>
+	</beans>
+	
+
+</beans>
